@@ -56,7 +56,7 @@ def parse_cmd():
 
 def get_zipped_schema(path):
 
-    archive = zipfile.ZipFile(path, 'r')
+    archive = zipfile.ZipFile(path, 'r', allowZip64=True)
     schema_cql = archive.read('schema.cql')
 
     matcher = 'CREATE TABLE (\w{1,})\.(\w{1,})'
@@ -136,7 +136,7 @@ def ansible_restore(cmds):
 
     # unzip 
     print('Unzipping snapshot file')
-    z = zipfile.ZipFile(zip_path, 'r')
+    z = zipfile.ZipFile(zip_path, 'r', allowZip64=True)
     z.extractall(temp_path)
 
     # check schema specification args

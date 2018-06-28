@@ -61,7 +61,7 @@ def restore(hosts, keyspace_arg = None, table_arg = None):
         clean_dir(temp_path)
 
     zip_path = snapshot_path + '/' + cqlsh_host + '.zip'
-    zipf = zipfile.ZipFile(zip_path, 'r')
+    zipf = zipfile.ZipFile(zip_path, 'r', allowZip64=True)
     zipf.extractall(temp_path)
     zipf.close()
 

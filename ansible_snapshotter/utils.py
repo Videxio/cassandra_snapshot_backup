@@ -123,8 +123,7 @@ def check_file(f):
 def zip_dir(root_path, save_path, title): # use shutil.make_archive in python2.7
 
     rootlength = len(root_path)
-    z = zipfile.ZipFile(save_path + '/' + title + '.zip',
-                        'w', zipfile.ZIP_DEFLATED)
+    z = zipfile.ZipFile(save_path + '/' + title + '.zip', 'w', zipfile.ZIP_DEFLATED, allowZip64=True)
     for root, dirs, files in os.walk(root_path):
         for f in files:
             filename = os.path.join(root_path, f)

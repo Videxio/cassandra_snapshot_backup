@@ -30,7 +30,7 @@ def load_schema(keyspace = None):
 
     # unzip schemas.zip
     print('Unzipping schemas.zip')
-    z = zipfile.ZipFile(temp_path + '/schemas.zip', 'r')
+    z = zipfile.ZipFile(temp_path + '/schemas.zip', 'r', allowZip64=True)
     z.extractall(temp_path)
 
     if keyspace:
